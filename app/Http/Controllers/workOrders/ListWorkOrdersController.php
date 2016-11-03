@@ -13,7 +13,7 @@ class ListWorkOrdersController extends Controller
     public function index()
     {
         foreach (WorkOrder::all() as $workOrder) {
-            $workOrders[] = $workOrder->id;
+            $workOrders[] = $workOrder;
         }
         return view('work-order.list-work-orders')->with(['workOrders' => $workOrders, 'property' => 'All Properties']);
     }
