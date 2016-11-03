@@ -8,9 +8,9 @@
     <div class="title m-b-md">
         {{$property}}
     </div>
-    <ul>
+    <ul class="list-group">
         @foreach($workOrders as $workOrder)
-            <li>{{$workOrder}}<a href="/view-work-order/{{$workOrder}}">View</a></li>
+            <li class="list-group-item">{{$workOrder}}<a href="/view-work-order/{{$workOrder}}">View</a></li>
         @endforeach
     </ul>
 @stop

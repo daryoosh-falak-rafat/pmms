@@ -22,5 +22,6 @@ class AddPropertyController extends Controller
         $property->postcode = request()->postcode;
         $property->town = request()->town;
         $property->save();
+        return redirect('/list-properties');
     }
 }
