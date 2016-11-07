@@ -25,3 +25,4 @@ Route::get('/view-property/{id}', 'properties\ViewPropertyController@index');
 Route::get('/add-property', 'properties\AddPropertyController@index');
 
 Route::post('/add-new-property', 'properties\AddPropertyController@add');
+Route::post('/add-work-order-comment/work-order/{id}', 'workOrders\AddCommentController@add');
