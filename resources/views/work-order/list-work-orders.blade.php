@@ -1,13 +1,10 @@
 @extends('../layout')
 
 @section('content')
-    <div class="title m-b-md">
-        Work Order List
-    </div>
+    <h1>Work Order List</h1>
 
-    <div class="title m-b-md">
-        {{$property}}
-    </div>
+    <h2>{{$property}}</h2>
+
     <ul class="list-group">
         @foreach($workOrders as $workOrder)
             <li class="list-group-item">

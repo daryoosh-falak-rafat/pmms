@@ -21,9 +21,6 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/css/style.css" />
-
 </head>
 <body>
 <div class="flex-center position-ref full-height">
@@ -33,17 +30,18 @@
             <a href="{{ url('/register') }}">Register</a>
         </div>
     @endif
-
-    <div class="content">
-        <div class="links">
-            <a href="/list-work-orders">Work Orders</a>
-            <a href="/list-properties">Properties</a>
-            <a href="/work-order-request">Work Order Request</a>
-        </div>
+        <nav class="navbar navbar-default">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/list-work-orders">Work Orders</a></li>
+                    <li><a href="/list-properties">Properties</a></li>
+                    <li><a href="/work-order-request">Work Order Request</a></li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             @yield('content')
         </div>
-    </div>
 </div>
 </body>
 </html>

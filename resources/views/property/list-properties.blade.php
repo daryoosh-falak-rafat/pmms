@@ -1,9 +1,7 @@
 @extends('../layout')
 
 @section('content')
-    <div class="title m-b-md">
-        All Properties
-    </div>
+    <h1>All Properties</h1>
     <hr>
     <a href="/add-property">ADD</a>
     <hr>

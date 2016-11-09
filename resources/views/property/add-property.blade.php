@@ -1,9 +1,7 @@
 @extends('../layout')
 
 @section('content')
-    <div class="title m-b-md">
-        Add new property
-    </div>
+    <h1>Add new property</h1>
     <hr>
     <form method="post" action="/add-new-property">
         <label for="address_line_1" class="col-xs-2 col-form-label">Address Line 1</label>

@@ -1,13 +1,9 @@
 @extends('../layout')
 
 @section('content')
-    <div class="title m-b-md">
-        Work Order
-    </div>
+    <h1>Work Order</h1>
 
-    <div class="title m-b-md">
-        For {{$property->address_line_1}} {{$property->postcode}}
-    </div>
+    <h2>For {{$property->address_line_1}} {{$property->postcode}}</h2>
     <p>
         {{$workOrder->description}}
     </p>
@@ -16,6 +12,7 @@
         @foreach($workOrder->comments as $comment)
             <li class="list-group-item">
                 {{ str_limit($comment->comment, $limit = 150, $end = '...') }}
+                <a href="/edit-work-order-comment/{{ $comment->id }}" class="glyphicon-pencil"></a>
             </li>
         @endforeach
     </ul>
@@ -23,7 +20,7 @@
     <form method="post" action="/add-work-order-comment/work-order/{{$workOrder->id}}">
         <label for="comment">Add your comment</label>
         <div>
-            <input class="form-control" type="text" name="comment" id="comment">
+            <textarea class="form-control" type="text" name="comment" id="comment"></textarea>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Add</button>
