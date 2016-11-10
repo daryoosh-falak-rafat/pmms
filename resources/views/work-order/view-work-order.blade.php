@@ -3,22 +3,26 @@
 @section('content')
     <h1>Work Order</h1>
 
-    <h2>For {{$property->address_line_1}} {{$property->postcode}}</h2>
-    <p>
+    <h2><b>Address: </b>{{$property->address_line_1}} {{$property->postcode}}</h2>
+    <h3><b>Description:</b>
+        @if(!empty($workOrder->description))
         {{$workOrder->description}}
-    </p>
-
+        @else
+        No Description (Press the edit button to add one)
+        @endif
+    </h3>
+    <h3>Comments</h3>
     <ul class="list-group">
         @foreach($workOrder->comments as $comment)
+            {{ $comment->user->user_name }} - Added: {{ $comment->created_at }} Updated: {{ $comment->updated_at }}
             <li class="list-group-item">
                 {{ str_limit($comment->comment, $limit = 150, $end = '...') }}
-                <a href="/edit-work-order-comment/{{ $comment->id }}" class="glyphicon-pencil"></a>
+                <a href="/edit-work-order-comment/{{ $comment->id }}" class="glyphicon-pencil pull-right"></a>
             </li>
         @endforeach
     </ul>
-
     <form method="post" action="/add-work-order-comment/work-order/{{$workOrder->id}}">
-        <label for="comment">Add your comment</label>
+        <label for="comment">Add a comment</label>
         <div>
             <textarea class="form-control" type="text" name="comment" id="comment"></textarea>
         </div>

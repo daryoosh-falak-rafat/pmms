@@ -1,7 +1,7 @@
 @extends('../layout')
 
 @section('content')
-    <h1>Work Order List</h1>
+    <h1>Work Orders</h1>
 
     <h2>{{$property}}</h2>
 

@@ -14,6 +14,7 @@ class AddCommentController extends Controller
     {
         $comment->comment = request()->comment;
         $comment->work_order_id = $id;
+        $comment->user_id = 1;
         $comment->save();
         return redirect('/view-work-order/' . $id);
     }

@@ -41,6 +41,29 @@ insert  into `property`(`id`,`address_line_1`,`address_line_2`,`postcode`,`town`
 (4,'Flat 2, 1 Egerton Road','','TN393HH','Bexhill','2016-11-01 21:25:01','2016-11-01 21:25:01',NULL),
 (5,'Test line 1','Test line 2','TE57 P00','Test Town','2016-11-01 22:25:21','2016-11-01 22:25:21',NULL);
 
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(35) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `user_name` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` text,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_name` (`user_name`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+/*Data for the table `user` */
+
+insert  into `user`(`id`,`first_name`,`last_name`,`created_at`,`updated_at`,`user_name`,`email`,`password`) values 
+(1,'Daryoosh','Falak Rafat','2016-11-10 20:26:11','2016-11-10 20:26:11','dary','dary@me.com','$2y$10$c7ls6hFKNqyXgHDoart4HutCrhuBm/Sif/p3T8484ytOVMpnsWl0q');
+
 /*Table structure for table `work_order` */
 
 DROP TABLE IF EXISTS `work_order`;
@@ -76,15 +99,22 @@ CREATE TABLE `work_order_comment` (
   `comment` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `work_order_id` (`work_order_id`),
-  CONSTRAINT `work_order_comment_ibfk_1` FOREIGN KEY (`work_order_id`) REFERENCES `work_order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `work_order_comment_ibfk_1` FOREIGN KEY (`work_order_id`) REFERENCES `work_order` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `work_order_comment_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `work_order_comment` */
 
-insert  into `work_order_comment`(`id`,`work_order_id`,`comment`,`created_at`,`updated_at`) values 
-(2,1,'test 2','2016-11-07 21:36:15','2016-11-07 21:36:15');
+insert  into `work_order_comment`(`id`,`work_order_id`,`comment`,`created_at`,`updated_at`,`user_id`) values 
+(2,1,'test 2 edited','2016-11-07 21:36:15','2016-11-09 20:47:09',1),
+(3,1,'Test comment edited','2016-11-09 19:03:55','2016-11-09 21:00:02',1),
+(4,2,'No info??','2016-11-10 18:50:41','2016-11-10 18:50:41',1),
+(5,1,'Test time date','2016-11-10 21:08:06','2016-11-10 21:08:06',1),
+(6,1,'test time again','2016-11-10 21:09:31','2016-11-10 21:09:31',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

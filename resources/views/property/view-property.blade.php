@@ -1,15 +1,23 @@
 @extends('../layout')
 
 @section('content')
-    <div class="title m-b-md">
-        Property
-    </div>
-    <div class="title m-b-md">
-        {{$property->address_line_1}}
-    </div>
-    <p>
-        {{$property->address_line_1}}, {{$property->town}}, {{$property->postcode}}
-    </p>
+    @if(!empty($property->address_line_1))
+        <h2><b>Address (Line One): </b>{{$property->address_line_1}}</h2>
+    @endif
+    @if(!empty($property->address_line_2))
+        <h2><b>Address Line 2: </b>{{$property->address_line_2}}</h2>
+    @endif
+    @if(!empty($property->town))
+        <h2><b>Town/City: </b>{{$property->town}}</h2>
+    @endif
+    @if(!empty($property->postcode))
+        <h2><b>Postcode: </b>{{$property->postcode}}</h2>
+    @endif
+    <hr>
+    <h3>Work Orders</h3>
+    @if(empty($property->workOrders->all()))
+        No outstanding work orders for this property
+    @else
     <ul class="list-group">
         @foreach($property->workOrders as $workOrder)
             <li class="list-group-item">
@@ -18,4 +26,5 @@
             </li>
         @endforeach
     </ul>
+    @endif
 @stop
