@@ -29,3 +29,5 @@ Route::post('/add-work-order-comment/work-order/{id}', 'workOrders\AddCommentCon
 Route::get('/edit-work-order-comment/{comment}', 'workOrders\EditCommentController@index');
 Route::patch('/add-work-order-comment/{comment}', 'workOrders\EditCommentController@update');
 Route::get('/create-work-order/{property}', 'workOrders\AddWorkOrderController@index');
+Route::post('/store-work-order/{property}', 'workOrders\AddWorkOrderController@store');
+Route::get('/delete-work-order/{workOrder}', 'workOrders\DeleteWorkOrderController@index');
