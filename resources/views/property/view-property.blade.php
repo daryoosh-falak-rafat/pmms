@@ -15,6 +15,9 @@
     @endif
     <hr>
     <h3>Work Orders</h3>
+    <hr>
+    <a href="/create-work-order/{{ $property->id }}" class="">Create Work Order</a>
+    <hr>
     @if(empty($property->workOrders->all()))
         No outstanding work orders for this property
     @else

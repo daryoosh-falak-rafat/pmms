@@ -28,3 +28,4 @@ Route::post('/add-new-property', 'properties\AddPropertyController@add');
 Route::post('/add-work-order-comment/work-order/{id}', 'workOrders\AddCommentController@add');
 Route::get('/edit-work-order-comment/{comment}', 'workOrders\EditCommentController@index');
 Route::patch('/add-work-order-comment/{comment}', 'workOrders\EditCommentController@update');
+Route::get('/create-work-order/{property}', 'workOrders\AddWorkOrderController@index');
