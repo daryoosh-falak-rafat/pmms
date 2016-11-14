@@ -1,7 +1,7 @@
 @extends('../layout')
 
 @section('content')
-    <h1>Work Order</h1>
+    <h1>Work Order<a href="/edit-work-order/{{$workOrder->id}}" class="glyphicon glyphicon-pencil"></a></h1>
 
     <h2><b>Address: </b>{{$property->address_line_1}} {{$property->postcode}}</h2>
     <h3><b>Description:</b>
@@ -11,6 +11,7 @@
         No Description (Press the edit button to add one)
         @endif
     </h3>
+    <hr>
     <h3>Comments</h3>
     <ul class="list-group">
         @foreach($workOrder->comments as $comment)

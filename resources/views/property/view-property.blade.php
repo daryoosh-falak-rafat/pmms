@@ -13,6 +13,7 @@
     @if(!empty($property->postcode))
         <h2><b>Postcode: </b>{{$property->postcode}}</h2>
     @endif
+    <a href="/edit-property/{{$property->id}}" class="glyphicon glyphicon-pencil"></a>
     <hr>
     <h3>Work Orders</h3>
     <hr>

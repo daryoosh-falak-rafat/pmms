@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Property extends Model
 {
     protected $table = 'property';
+    protected $fillable = ['address_line_1', 'address_line_2', 'postcode', 'town', 'configuration'];
 
     public function workOrders()
     {

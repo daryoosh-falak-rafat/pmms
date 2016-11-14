@@ -12,6 +12,8 @@ class WorkOrder extends Model
      */
     protected $table = 'work_order';
 
+    protected $fillable = ['property_id', 'description'];
+
     /**
      * one to many relationship between work orders and work order comments. A workOrder may have many comments
      *
@@ -27,7 +29,7 @@ class WorkOrder extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function workOrder()
+    public function property()
     {
         return $this->belongsTo(Property::class);
     }
