@@ -13,4 +13,9 @@ class Property extends Model
     {
         return $this->hasMany(WorkOrder::class);
     }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
 }

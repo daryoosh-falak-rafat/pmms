@@ -33,9 +33,11 @@
         <nav class="navbar navbar-default">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="/list-work-orders">Work Orders</a></li>
+                    <li><a href="/account-overview">Account</a></li>
                     <li><a href="/list-properties">Properties</a></li>
+                    <li><a href="/list-work-orders">Work Orders</a></li>
                     <li><a href="/work-order-request">Work Order Request</a></li>
+                    <li><a href="/admin">Admin</a></li>
                 </ul>
             </div>
         </nav>
