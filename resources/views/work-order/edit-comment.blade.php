@@ -3,7 +3,7 @@
 @section('content')
     <h1>Edit comment</h1>
 
-    <form method="post" action="/add-work-order-comment/{{ $comment->id }}">
+    <form method="post" action="/update-work-order-comment/{{ $comment->id }}">
         {{ method_field('patch') }}
         <label for="comment">Edit your comment</label>
         <div>

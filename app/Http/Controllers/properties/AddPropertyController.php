@@ -15,7 +15,7 @@ class AddPropertyController extends Controller
         return view('property.add-property');
     }
 
-    public function add(Property $property)
+    public function create(Property $property)
     {
         $property->address_line_1 = request()->address_line_1;
         $property->address_line_2 = request()->address_line_2;
