@@ -1,4 +1,4 @@
-@extends('../layout')
+@extends('layouts.app')
 
 @section('content')
     @if(!empty($property->address_line_1))

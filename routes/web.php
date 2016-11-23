@@ -61,3 +61,6 @@ Route::patch('/update-property/{property}', 'properties\EditPropertyController@u
 //retrieve
 //update
 //delete
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

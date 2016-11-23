@@ -1,4 +1,4 @@
-@extends('../layout')
+@extends('layouts.app')
 
 @section('content')
     <h1>Update Work Order for {{ $workOrder->property->address_line_1 }}</h1>

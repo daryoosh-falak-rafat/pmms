@@ -1,4 +1,4 @@
-@extends('../layout')
+@extends('layouts.app')
 
 @section('content')
     <h1>Work Order<a href="/edit-work-order/{{$workOrder->id}}" class="glyphicon glyphicon-pencil"></a></h1>
