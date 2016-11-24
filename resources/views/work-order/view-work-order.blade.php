@@ -15,7 +15,7 @@
     <h3>Comments</h3>
     <ul class="list-group">
         @foreach($workOrder->comments as $comment)
-            {{ $comment->user->user_name }} - Added: {{ $comment->created_at }} Updated: {{ $comment->updated_at }}
+            {{ $comment->user->name }} - Added: {{ $comment->created_at }} Updated: {{ $comment->updated_at }}
             <li class="list-group-item">
                 {{ str_limit($comment->comment, $limit = 150, $end = '...') }}
                 <a href="/edit-work-order-comment/{{ $comment->id }}" class="glyphicon glyphicon-pencil pull-right"></a>

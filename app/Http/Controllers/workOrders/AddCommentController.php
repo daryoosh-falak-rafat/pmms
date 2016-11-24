@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class AddCommentController extends Controller
 {
@@ -14,7 +15,7 @@ class AddCommentController extends Controller
     {
         $comment->comment = request()->comment;
         $comment->work_order_id = $id;
-        $comment->user_id = 1;
+        $comment->user_id = Auth::id();
         $comment->save();
         return redirect('/view-work-order/' . $id);
     }
