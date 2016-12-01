@@ -27,9 +27,8 @@
             <li class="list-group-item">
                 {{ str_limit($workOrder->description, $limit = 150, $end = '...') }}
                 <a href="/view-work-order/{{$workOrder->id}}">View</a>
-                <a href="/delete-work-order/{{$workOrder->id}}" class="glyphicon glyphicon-trash pull-right"></a>
-                <a href="/edit-work-order/{{$workOrder->id}}" class="glyphicon glyphicon-pencil pull-right"></a>
-
+                <a href="/delete-work-order/{{$workOrder->id}}" class="pull-right">Delete</a>
+                <a href="/edit-work-order/{{$workOrder->id}}" class="pull-right">Edit</a>
             </li>
         @endforeach
     </ul>

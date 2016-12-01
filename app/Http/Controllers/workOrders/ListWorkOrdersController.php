@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ListWorkOrdersController extends Controller
 {
-    public function index()
+    public function listForAccount()
     {
         foreach (WorkOrder::all() as $workOrder) {
             $workOrders[] = $workOrder;
@@ -18,11 +18,10 @@ class ListWorkOrdersController extends Controller
         return view('work-order.list-work-orders')->with(['workOrders' => $workOrders, 'property' => 'All Properties']);
     }
 
-    public function listForProperty($id)
+    public function listForProperty(Property $property)
     {
-        $property = Property::find($id);
         $propertyDisplay = $property->address_line_1 . ', ' . $property->postcode;
-        foreach (DB::table('work_order')->get()->where('property_id', $id) as $workOrder) {
+        foreach ($property->workOrders as $workOrder) {
             $workOrders[] = $workOrder->id;
         };
         return view('work-order.list-work-orders')->with(['workOrders' => $workOrders, 'property' => $propertyDisplay]);

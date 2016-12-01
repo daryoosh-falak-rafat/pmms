@@ -27,9 +27,9 @@ Route::get('/create-work-order/{property}', 'workOrders\AddWorkOrderController@i
 Route::post('/store-work-order/{property}', 'workOrders\AddWorkOrderController@store');
 Route::get('/work-order-request', 'workOrders\RequestWorkOrderController@index');
 //retrieve
-Route::get('/list-work-orders', 'workOrders\ListWorkOrdersController@index');
-Route::get('/list-work-orders-for-property/{id}', 'workOrders\ListWorkOrdersController@listForProperty');
-Route::get('/view-work-order/{id}', 'workOrders\ViewWorkOrderController@index');
+Route::get('/list-work-orders', 'workOrders\ListWorkOrdersController@listForAccount');
+Route::get('/list-work-orders-for-property/{property}', 'workOrders\ListWorkOrdersController@listForProperty');
+Route::get('/view-work-order/{workOrder}', 'workOrders\ViewWorkOrderController@index');
 //update
 Route::get('/edit-work-order/{workOrder}', 'workOrders\EditWorkOrderController@index');
 Route::patch('/update-work-order/{workOrder}', 'workOrders\EditWorkOrderController@update');
@@ -51,7 +51,7 @@ Route::get('/add-property', 'properties\AddPropertyController@index');
 Route::post('/store-property', 'properties\AddPropertyController@create');
 //retrieve
 Route::get('/list-properties', 'properties\ListPropertiesController@index');
-Route::get('/view-property/{id}', 'properties\ViewPropertyController@index');
+Route::get('/view-property/{property}', 'properties\ViewPropertyController@index');
 //update
 Route::get('/edit-property/{property}', 'properties\EditPropertyController@index');
 Route::patch('/update-property/{property}', 'properties\EditPropertyController@update');

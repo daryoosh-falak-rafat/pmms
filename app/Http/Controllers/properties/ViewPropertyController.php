@@ -8,9 +8,8 @@ use App\Http\Controllers\Controller;
 
 class ViewPropertyController extends Controller
 {
-    public function index($id)
+    public function index(Property $property)
     {
-        $property = Property::find($id);
         return view('property.view-property')->with(['property' => $property]);
     }
 }
