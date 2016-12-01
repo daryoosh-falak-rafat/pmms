@@ -11,6 +11,8 @@
         No Description (Press the edit button to add one)
         @endif
     </h3>
+    <h3>Created: {{ date('d/m/Y', strtotime($workOrder->created_at)) }}</h3>
+    <h3>Expected Completion Date: {{ $workOrder->getExpectedCompletionDate() }}</h3>
     <hr>
     <h3>Comments</h3>
     <ul class="list-group">

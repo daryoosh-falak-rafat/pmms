@@ -12,7 +12,7 @@ class WorkOrder extends Model
      */
     protected $table = 'work_order';
 
-    protected $fillable = ['property_id', 'description'];
+    protected $fillable = ['property_id', 'description', 'priority'];
 
     /**
      * one to many relationship between work orders and work order comments. A workOrder may have many comments
@@ -32,5 +32,10 @@ class WorkOrder extends Model
     public function property()
     {
         return $this->belongsTo(Property::class);
+    }
+
+    public function getExpectedCompletionDate()
+    {
+        var_dump($this->created_at);
     }
 }

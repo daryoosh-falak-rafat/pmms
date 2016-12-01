@@ -20,6 +20,7 @@ class AddWorkOrderController extends Controller
     {
         $workOrder->description = request()->description;
         $workOrder->property_id = $property->id;
+        $workOrder->priority = request()->priority;
         $workOrder->save();
         return redirect('/view-property/' . $property->id);
     }
