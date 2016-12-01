@@ -18,15 +18,15 @@ class ViewAccountController extends Controller
     public function index()
     {
         $account = Account::find(1);
-        $openWorkOrders = $this->workOrderRepository->forAccount($account);
-        $completeWorkOrders = $this->workOrderRepository->forAccount($account, true);
+        $openWorkOrders = $this->workOrderRepository->getOpenWorkOrdersForAccount($account);
+        $completeWorkOrders = $this->workOrderRepository->getCompletedWorkOrdersForAccount($account);
 
         return view('account.view-account')->with([
             'account' => $account,
             'openWorkOrders' => $openWorkOrders,
-            'openWorkOrdersCount' => $this->workOrderRepository->countForAccount($account, true),
+            'openWorkOrdersCount' => $this->workOrderRepository->countOpenWorkOrdersForAccount($account, true),
             'completeWorkOrders' => $completeWorkOrders,
-            'completedWorkOrdersCount' => $this->workOrderRepository->countForAccount($account),
+            'completedWorkOrdersCount' => $this->workOrderRepository->countCompletedWorkOrdersForAccount($account),
             'propertyCount' => $this->propertyRepository->countForAccount($account),
         ]);
     }
