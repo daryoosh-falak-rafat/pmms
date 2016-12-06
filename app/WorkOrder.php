@@ -34,8 +34,8 @@ class WorkOrder extends Model
         return $this->belongsTo(Property::class);
     }
 
-    public function getExpectedCompletionDate()
+    public function priority()
     {
-        var_dump($this->created_at);
+        return $this->belongsTo(Priority::class);
     }
 }
