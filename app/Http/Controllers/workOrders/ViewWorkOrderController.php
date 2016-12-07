@@ -17,7 +17,8 @@ class ViewWorkOrderController extends Controller
         $property = Property::find($workOrder->property_id);
         return view('work-order.view-work-order')->with([
             'workOrder' => $workOrder,
-            'property' => $property
+            'property' => $property,
+            'completionDate' => $dateCalculator->getExpectedCompletedDate($workOrder)->format('d/m/Y h:i:s A')
         ]);
     }
 }

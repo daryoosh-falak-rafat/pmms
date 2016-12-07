@@ -11,9 +11,9 @@
         No Description (Press the edit button to add one)
         @endif
     </h3>
-    <h3>Created: {{ $workOrder->created_at }}</h3>
-    <h3>Expected Completion Date: {{ $workOrder->created_at->addDays($workOrder->priority->days_to_complete) }}</h3>
-    <h3>Priority: {{ $workOrder->priority->name }}</h3>
+    <h3><b>Created:</b> {{ $workOrder->created_at->format('d/m/Y h:i:s A') }}</h3>
+    <h3><b>Expected Completion:</b> {{ $completionDate }}</h3>
+    <h3><b>Priority:</b> {{ $workOrder->priority->name }}</h3>
     <hr>
     <h3>Comments</h3>
     <ul class="list-group">

@@ -10,8 +10,11 @@ use Carbon\Carbon;
  */
 
 class CompletionDateCalculator {
-    public function test(Carbon $date, $priority)
+    public function getExpectedCompletedDate($workOrder)
     {
-        return $date->addDays($priority);
+        $date = $workOrder->created_at;
+        $date->addDays($workOrder->priority->days_to_complete);
+        $date->addHours($workOrder->priority->hours_to_complete);
+        return $date;
     }
 }
