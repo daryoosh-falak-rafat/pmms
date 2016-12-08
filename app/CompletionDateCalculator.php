@@ -17,4 +17,16 @@ class CompletionDateCalculator {
         $date->addHours($workOrder->priority->hours_to_complete);
         return $date;
     }
+
+    public function getTimeLeftToComplete($workOrder)
+    {
+        $expectedCompletionDate = $workOrder->created_at;
+        $expectedCompletionDate->addDays($workOrder->priority->days_to_complete);
+        $expectedCompletionDate->addHours($workOrder->priority->hours_to_complete);
+        $difference = $expectedCompletionDate->diff(Carbon::now());
+        $days = $difference->d;
+        $hours = $difference->h;
+        $beforeOrAfter = (Carbon::now())->gte($expectedCompletionDate) ? 'overdue' : 'left';
+        return $days . 'days ' . $hours . 'hours ' . $beforeOrAfter;
+    }
 }

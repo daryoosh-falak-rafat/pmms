@@ -14,7 +14,7 @@ class WorkOrderRepository {
             ->join('account', 'account.id', '=', 'property.account_id')
             ->select('work_order.*')
             ->where('account_id', $account->id)
-            ->orderBy('priority', 'desc');
+            ->orderBy('priority_id', 'desc');
     }
 
     public function getOpenWorkOrdersForAccount(Account $account)

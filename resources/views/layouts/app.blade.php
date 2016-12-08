@@ -83,7 +83,6 @@
         </nav>
 
         <div class="container">
-            <hr>
             @yield('content')
             <hr>
         </div>
