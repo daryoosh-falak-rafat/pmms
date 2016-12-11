@@ -20,9 +20,7 @@ class CompletionDateCalculator {
 
     public function getTimeLeftToComplete($workOrder)
     {
-        $expectedCompletionDate = $workOrder->created_at;
-        $expectedCompletionDate->addDays($workOrder->priority->days_to_complete);
-        $expectedCompletionDate->addHours($workOrder->priority->hours_to_complete);
+        $expectedCompletionDate = $this->getExpectedCompletedDate($workOrder);
         $difference = $expectedCompletionDate->diff(Carbon::now());
         $days = $difference->d;
         $hours = $difference->h;

@@ -12,11 +12,15 @@ use App\Http\Controllers\Controller;
 
 class AddWorkOrderController extends Controller
 {
-    public function index(Property $property, PriorityRepository $priorityRepository)
+    public function index(Property $property, PriorityRepository $priorityRepository, WorkOrder $workOrder)
     {
+        foreach ($priorityRepository->getAllPriorities() as $priority) {
+            $priorities[$priority->id] = $priority->name;
+        }
         return view('work-order.add-work-order')->with([
+            'workOrder' => $workOrder,
             'property' => $property,
-            'priorities' => $priorityRepository->getAllPriorities(),
+            'priorities' => $priorities,
         ]);
     }
 
@@ -24,7 +28,7 @@ class AddWorkOrderController extends Controller
     {
         $workOrder->description = request()->description;
         $workOrder->property_id = $property->id;
-        $workOrder->priority_id = request()->priority;
+        $workOrder->priority_id = request()->priority_id;
         $workOrder->save();
         return redirect('/view-property/' . $property->id);
     }
