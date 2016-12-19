@@ -1,6 +1,6 @@
 <div class="form-group">
     {{Form::label('description', 'Description')}}
-    {{Form::textarea('description')}}
+    {{Form::textarea('description', null ,['class' => 'col-xs-12'])}}
 </div>
 <div class="form-group">
     {{Form::label('priority_id', 'Priority')}}
