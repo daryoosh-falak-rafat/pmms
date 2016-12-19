@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class WorkOrderComment extends Model
 {
     protected $table = 'work_order_comment';
-    protected $fillable = ['comment', 'user_id'];
+    protected $fillable = ['comment', 'user_id', 'work_order_id'];
 
     public function workOrder()
     {

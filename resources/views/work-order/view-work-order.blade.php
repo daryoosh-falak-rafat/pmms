@@ -25,13 +25,10 @@
             </li>
         @endforeach
     </ul>
-    <form method="post" action="/add-work-order-comment/work-order/{{$workOrder->id}}">
-        <label for="comment">Add a comment</label>
-        <div>
-            <textarea class="form-control" type="text" name="comment" id="comment"></textarea>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-    </form>
+    <h1>Add comment</h1>
+
+    {!! Form::model(null, ['action' => ['workOrders\AddCommentController@add', $workOrder->id]]) !!}
+    @include('work-order.forms.work-order-comment-form', ['buttonLabel' => 'Add'])
+
+    {!! Form::close() !!}
 @stop

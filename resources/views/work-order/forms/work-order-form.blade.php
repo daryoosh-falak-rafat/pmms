@@ -7,4 +7,4 @@
     {{Form::select('priority_id', $priorities)}}
 </div>
 
-{{Form::submit('Update')}}
+{{Form::submit($buttonLabel, ['class' => 'btn btn-primary'])}}

@@ -6,6 +6,5 @@
     {!! Form::model($workOrder, ['action' => ['workOrders\EditWorkOrderController@update', $workOrder->id]]) !!}
         {{ method_field('patch') }}
         @include('work-order.forms.work-order-form', ['buttonLabel' => 'Update'])
-
     {!! Form::close() !!}
 @stop
