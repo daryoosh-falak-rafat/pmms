@@ -15,6 +15,15 @@
     <h3><b>Expected Completion:</b> {{ $completionDate }} ({{ $timeLeft }})</h3>
     <h3><b>Priority:</b> {{ $workOrder->priority->name }}</h3>
     <hr>
+    @if($workOrder->completed_date === null)
+    {!! Form::model(null, ['action' => ['workOrders\CompleteWorkOrderController@index', $workOrder->id]]) !!}
+    {{ method_field('patch') }}
+    @include('work-order.forms.complete-work-order-form')
+    {!! Form::close() !!}
+    @else
+    Work Order Complete {{$workOrder->completed_date}}
+    @endif
+    <hr>
     <h3>Comments</h3>
     <ul class="list-group">
         @foreach($workOrder->comments as $comment)

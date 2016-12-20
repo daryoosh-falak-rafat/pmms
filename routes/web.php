@@ -33,6 +33,7 @@ Route::get('/view-work-order/{workOrder}', 'workOrders\ViewWorkOrderController@i
 //update
 Route::get('/edit-work-order/{workOrder}', 'workOrders\EditWorkOrderController@index');
 Route::patch('/update-work-order/{workOrder}', 'workOrders\EditWorkOrderController@update');
+Route::patch('/complete-work-order/{workOrder}', 'workOrders\CompleteWorkOrderController@index');
 //delete
 Route::get('/delete-work-order/{workOrder}', 'workOrders\DeleteWorkOrderController@index');
 
