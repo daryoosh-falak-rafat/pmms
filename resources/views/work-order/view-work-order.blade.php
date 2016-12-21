@@ -34,10 +34,11 @@
             </li>
         @endforeach
     </ul>
+    @if($loggedIn)
     <h1>Add comment</h1>
-
     {!! Form::model(null, ['action' => ['workOrders\AddCommentController@add', $workOrder->id]]) !!}
     @include('work-order.forms.work-order-comment-form', ['buttonLabel' => 'Add'])
 
     {!! Form::close() !!}
+    @endif
 @stop

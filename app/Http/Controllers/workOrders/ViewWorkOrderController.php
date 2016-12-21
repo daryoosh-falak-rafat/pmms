@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ViewWorkOrderController extends Controller
 {
@@ -21,7 +22,8 @@ class ViewWorkOrderController extends Controller
             'property' => $property,
             'completionDate' => $dateCalculator->getExpectedCompletedDate($workOrder)->format('d/m/Y h:i:s A'),
             'timeLeft' => $dateCalculator->getTimeLeftToComplete($workOrder),
-            'comment' => $comment
+            'comment' => $comment,
+            'loggedIn' => Auth::id(),
         ]);
     }
 }
