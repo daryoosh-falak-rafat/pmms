@@ -24,6 +24,7 @@ class ViewWorkOrderController extends Controller
             'timeLeft' => $dateCalculator->getTimeLeftToComplete($workOrder),
             'comment' => $comment,
             'loggedIn' => Auth::id(),
+            'completedColour' => $dateCalculator->getCompletedDateColour($workOrder),
         ]);
     }
 }

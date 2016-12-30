@@ -27,4 +27,21 @@ class CompletionDateCalculator {
         $beforeOrAfter = (Carbon::now())->gte($expectedCompletionDate) ? 'overdue' : 'left';
         return $days . 'days ' . $hours . 'hours ' . $beforeOrAfter;
     }
+
+    public function getCompletedDateColour($workOrder)
+    {
+        $expectedCompletionDate = $this->getExpectedCompletedDate($workOrder);
+        $difference = $expectedCompletionDate->diff(Carbon::now());
+        $overDue = (Carbon::now())->gte($expectedCompletionDate);
+        if ($workOrder->completed_date) {
+            return 'success';
+        }
+        if ($overDue || $difference->d < 2) {
+            return 'danger';
+        }
+        if ($difference->d > 2 && $difference->d < 4) {
+            return 'warning';
+        }
+        return 'success';
+    }
 }
