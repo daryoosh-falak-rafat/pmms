@@ -20,7 +20,7 @@ class ViewWorkOrderController extends Controller
         return view('work-order.view-work-order')->with([
             'workOrder' => $workOrder,
             'property' => $property,
-            'completionDate' => $dateCalculator->getExpectedCompletedDate($workOrder)->format('d/m/Y h:i:s A'),
+            'completionDate' => $dateCalculator->getExpectedCompletedDate($workOrder->created_at)->format('d/m/Y h:i:s A'),
             'timeLeft' => $dateCalculator->getTimeLeftToComplete($workOrder),
             'comment' => $comment,
             'loggedIn' => Auth::id(),

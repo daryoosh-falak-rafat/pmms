@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('/about', 'AboutController@index');
 
+//test
+Route::get('/test-route/{test}/{test2}', 'test\TestController@test');
+
 //account
 //retrieve
 Route::get('/account-overview', 'accounts\ViewAccountController@index');
